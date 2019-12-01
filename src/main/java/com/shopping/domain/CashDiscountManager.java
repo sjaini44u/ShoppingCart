@@ -11,15 +11,17 @@ import java.util.ArrayList;
  */
 public class CashDiscountManager {
 
-    private Discount discountSlab1;
-    private Discount discountSlab2;
-    private ArrayList<CashDiscount> cashDiscounts;
+    private final Discount discountSlab1;
+    private final Discount discountSlab2;
+    private final ArrayList<Discount> cashDiscounts;
 
 
     public CashDiscountManager(){
-        cashDiscounts = new ArrayList<CashDiscount>();
+        cashDiscounts = new ArrayList<Discount>();
         discountSlab2 = new CashDiscount(20 , 10000, Long.MAX_VALUE);
         discountSlab1 = new CashDiscount(10, 4999, 10000);
+        cashDiscounts.add(discountSlab1);
+        cashDiscounts.add(discountSlab2);
     }
 
     public long getDiscountedCartValue(long cartValue){
