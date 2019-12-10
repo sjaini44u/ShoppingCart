@@ -25,9 +25,10 @@ public class CashDiscountManager {
     }
 
     public long getDiscountedCartValue(long cartValue){
+        long discountValue =0;
         for (Discount discount : cashDiscounts){
-              cartValue = discount.priceAfterDiscount(cartValue);
+              discountValue += discount.priceAfterDiscount(cartValue);
         }
-        return cartValue;
+            return cartValue - discountValue;
     }
 }

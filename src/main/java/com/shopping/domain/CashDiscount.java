@@ -21,9 +21,13 @@ public class CashDiscount implements Discount {
 
     @Override
     public long priceAfterDiscount(long cartValue) {
-        if (cartValue > minCartAmount && cartValue <= maxCartAmount) {
-            return cartValue - ((cartValue * discountPercent) / 100);
+        if (cartValue > minCartAmount && cartValue >= maxCartAmount) {
+            return (maxCartAmount - minCartAmount)* discountPercent/100;
+
         }
-        return cartValue;
+        if(cartValue > minCartAmount && cartValue < maxCartAmount){
+            return (cartValue - minCartAmount) * discountPercent/100;
+        }
+        return 0;
     }
 }

@@ -23,12 +23,23 @@ public class CashDiscountManagerTest {
     @Test
     public void  test_discountedCartValue_when_cartPriceIs_greaterThan_5000(){
         long finalCartValue = discountManager.getDiscountedCartValue(6000);
-        Assert.assertEquals(5400, finalCartValue);
+        Assert.assertEquals(5900, finalCartValue);
     }
 
     @Test
     public void  test_discountedCartValue_when_cartPriceIs_greaterThan_10000(){
         long finalCartValue = discountManager.getDiscountedCartValue(12000);
-        Assert.assertEquals(9600, finalCartValue);
+        Assert.assertEquals(11100, finalCartValue);
+    }
+
+    @Test
+    public void  test_discountedCartValue_when_cartPriceIs_10000(){
+        long finalCartValue = discountManager.getDiscountedCartValue(10000);
+        Assert.assertEquals(9500, finalCartValue);
+    }
+    @Test
+    public void  test_discountedCartValue_when_cartPriceIs_greaterThan_15000(){
+        long finalCartValue = discountManager.getDiscountedCartValue(15000);
+        Assert.assertEquals(13500, finalCartValue);
     }
 }
